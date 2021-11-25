@@ -11,7 +11,7 @@ const {
 
 router.get('/', productsGet);
 
-router.post('/', productsPost);
+router.post('/', productsPost); 
 
 router.get('/:sku', productsGetBySKU);
 
