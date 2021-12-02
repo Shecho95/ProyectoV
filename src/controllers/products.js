@@ -21,8 +21,8 @@ const productsPost = (req, res) => {
     //res.json({ msg: "Post Products controller", Product});
 }
 
-const productsGetBySKU = (req, res) => {
-    Product.findOne(req.params.sku)
+const productsGetById = (req, res) => {
+    Product.findOne(req.params.id)
         .then(result => {
           if (result) {
             res.json(result);
@@ -33,11 +33,11 @@ const productsGetBySKU = (req, res) => {
         .catch(error => {
           res.status(412).json({msg: error.message});
         });
-    //res.json({ msg: "get by SKU Products controller" });
+    //res.json({ msg: "get by id Products controller" });
 }
 
 const productsPut = (req, res) => {
-    Product.update(req.body, req.params.sku)
+    Product.update(req.body, req.params.id)
         .then(() => res.sendStatus(204))
         .catch(error => {
           res.status(412).json({msg: error.message});
@@ -47,7 +47,7 @@ const productsPut = (req, res) => {
 
 const productsDelete = (req, res) => {
     //const sku = parseInt(req.params.sku)
-    Product.destroy(req.params.sku)
+    Product.destroy(req.params.id)
         .then(() => res.sendStatus(204))
         .catch((err) => {
             console.log('Error borrando el producto', JSON.stringify(err))
@@ -57,5 +57,5 @@ const productsDelete = (req, res) => {
 }
 
 module.exports = {
-    productsGet, productsPost, productsGetBySKU, productsPut, productsDelete
+    productsGet, productsPost, productsGetById, productsPut, productsDelete
 }

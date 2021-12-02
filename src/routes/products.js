@@ -4,7 +4,7 @@ const router = express.Router()
 const { 
     productsGet, 
     productsPost, 
-    productsGetBySKU, 
+    productsGetById, 
     productsPut, 
     productsDelete
 } = require('../controllers/products')
@@ -13,10 +13,10 @@ router.get('/', productsGet);
 
 router.post('/', productsPost); 
 
-router.get('/:sku', productsGetBySKU);
+router.get('/:id', productsGetById);
 
-router.put('/:sku', productsPut);
+router.put('/:id', productsPut);
 
-router.delete('/:sku', productsDelete);
+router.delete('/:id', productsDelete);
 
 module.exports = router
