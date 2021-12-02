@@ -4,7 +4,7 @@ const usersGet = (req, res) => {
     User.findAll()
     .then((users) => res.send(users))
     .catch((err) => {
-      console.log('Error al consultar los useros', JSON.stringify(err))
+      console.log('Error al consultar los usuarios', JSON.stringify(err))
       res.send(err)
     });
     //res.json({ msg: "get users controller" });
