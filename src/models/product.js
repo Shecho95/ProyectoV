@@ -26,7 +26,7 @@ module.exports = {
         productimg = $6,
         isavailable = $7,
         color = $8,
-        reviews = $9,
+        reviews = $9
         where id = $10`, [productname, description, categoryid, price, rating, productimg, isavailable, color, reviews, id]);
         return result;
     },
