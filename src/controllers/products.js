@@ -36,6 +36,22 @@ const productsGetById = (req, res) => {
     //res.json({ msg: "get by id Products controller" });
 }
 
+
+const productsGetByCategory = (req, res) => {
+  Product.findOneByCategory(req.params.category_id)
+      .then(result => {
+        if (result) {
+          res.json(result);
+        } else {
+          res.sendStatus(404);
+        }
+      })
+      .catch(error => {
+        res.status(412).json({msg: error.message});
+      });
+  //res.json({ msg: "get by categoriy Products controller" });
+}
+
 const productsPut = (req, res) => {
     Product.update(req.body, req.params.id)
         .then(() => res.sendStatus(204))
@@ -57,5 +73,5 @@ const productsDelete = (req, res) => {
 }
 
 module.exports = {
-    productsGet, productsPost, productsGetById, productsPut, productsDelete
+    productsGet, productsPost, productsGetById, productsPut, productsDelete, productsGetByCategory
 }
