@@ -17,7 +17,7 @@ module.exports = {
     },
     async findOneByCategory(categoryid) {
         const result = await conexion.query(`select * from products where categoryid = $1`, [categoryid]);
-        return result.rows[0];
+        return result.rows;
     },
     async update(product, id) {
         const {productname, description, categoryid, price, rating, productimg, isavailable, color, reviews} = product;
