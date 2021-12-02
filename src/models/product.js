@@ -16,7 +16,7 @@ module.exports = {
         return result.rows[0];
     },
     async update(product, id) {
-        const {productname, description, categoryid, price} = product;
+        const {productname, description, categoryid, price, rating, productimg, isavailable, color, reviews} = product;
         const result = conexion.query(`update products
         set productname = $1,
         description = $2,
