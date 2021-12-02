@@ -38,7 +38,7 @@ const productsGetById = (req, res) => {
 
 
 const productsGetByCategory = (req, res) => {
-  Product.findOneByCategory(req.params.category_id)
+  Product.findOneByCategory(req.params.id)
       .then(result => {
         if (result) {
           res.json(result);
